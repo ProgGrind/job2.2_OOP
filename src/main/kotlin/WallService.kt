@@ -5,15 +5,16 @@ class WallService {
 //        var idGenerate = post.id + 1
 //        post.id = idGenerate
 
-      val postNewId = post.copy(id = (1..100).random())
+      val postNewId = post.copy(id = post.id + 1)
 
       posts += postNewId
       return posts.last()
     }
 
     fun update(post: Post): Boolean {
+        var upd = true
         for ((index, element) in posts.withIndex()) {
-            if (element.id == post.id)
+            if (element.id == post.id) {
                 posts[index] = element.copy(
                     id = post.id,
                     ownerId = post.ownerId,
@@ -39,8 +40,10 @@ class WallService {
                     isFavorite = post.isFavorite,
                     postponedId = post.postponedId
                 )
+                upd = true
+            } else upd = false
         }
-        return false
+        return upd
     }
 }
 
