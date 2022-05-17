@@ -1,4 +1,8 @@
- fun main(){
+import attachments.*
+
+
+
+fun main(){
      val post = Post(
          id = 0,
          ownerId = 123,
@@ -15,6 +19,7 @@
          reposts = Reposts(1, true),
          views = Views(1),
          postType = "Great Post",
+         attachments = AudioAttachment(Audio(1,123, "Hey", "Ba-da-boom", 163, 11122022)),
          signerId = 100,
          canPin = false,
          canDelete = false,

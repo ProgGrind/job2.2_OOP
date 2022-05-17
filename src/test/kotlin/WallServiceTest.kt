@@ -1,3 +1,4 @@
+import attachments.*
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -12,9 +13,9 @@ class WallServiceTest {
         val wallService = WallService()
         val postTest: Post = Post(
             0, 123, 321, 456, 10012022, "my test text post", 654, 789,
-            987, Comments(2, true, false, true, true), "no copyright here",
+            987, Comments(2, canPost = true, groupsCanPost = false, canClose = true, canOpen = true), "no copyright here",
             Likes(1, false, false, false), Reposts(1, true), Views(1),
-            "Great Post", 100, false, false, false, false, false,
+            "Great Post", AudioAttachment(Audio(1,123, "Hey", "Ba-da-boom", 163, 11122022)),100, false, false, false, false, false,
             false, 123
         )
 
@@ -37,7 +38,7 @@ class WallServiceTest {
                 1, 222, 333, 555, 10012022, "my new test text post", 666, 789,
                 987, Comments(2, true, false, true, true), "no copyright here",
                 Likes(1, false, false, false), Reposts(1, true), Views(1),
-                "Great Post", 100, false, false, false, false, false,
+                "Great Post", AudioAttachment(Audio(1,123, "Hey", "Ba-da-boom", 163, 11122022)),100, false, false, false, false, false,
                 false, 123
             )
         )
@@ -48,7 +49,7 @@ class WallServiceTest {
         val update = Post(idTest, 123, 321, 456, 1012022, "my updated test text post", 654, 789,
             987, Comments(2, true, false, true, true), "no copyright here",
             Likes(1, false, false, false), Reposts(1, true), Views(1),
-            "Great Post", 100, false, false, false, false, false,
+            "Great Post", AudioAttachment(Audio(1,123, "Hey", "Ba-da-boom", 163, 11122022)),100, false, false, false, false, false,
             false, 123
         )
 
@@ -72,7 +73,7 @@ class WallServiceTest {
                 0, 222, 333, 555, 10012022, "my new test text post", 666, 789,
                 987, Comments(2, true, false, true, true), "no copyright here",
                 Likes(1, false, false, false), Reposts(1, true), Views(1),
-                "Great Post", 100, false, false, false, false, false,
+                "Great Post", AudioAttachment(Audio(1,123, "Hey", "Ba-da-boom", 163, 11122022)),100, false, false, false, false, false,
                 false, 123
             )
         )
@@ -81,7 +82,7 @@ class WallServiceTest {
                 0, 444, 555, 777, 10022022, "my newest test text post", 654, 789,
                 987, Comments(2, true, false, true, true), "no copyright here",
                 Likes(1, false, false, false), Reposts(1, true), Views(1),
-                "Great Post", 100, false, false, false, false, false,
+                "Great Post", AudioAttachment(Audio(1,123, "Hey", "Ba-da-boom", 163, 11122022)),100, false, false, false, false, false,
                 false, 123
             )
         )
@@ -90,7 +91,7 @@ class WallServiceTest {
                 0, 777, 444, 456, 10032022, "my new newest test text post", 888, 789,
                 987, Comments(2, true, false, true, true), "no copyright here",
                 Likes(1, false, false, false), Reposts(1, true), Views(1),
-                "Great Post", 100, false, false, false, false, false,
+                "Great Post", AudioAttachment(Audio(1,123, "Hey", "Ba-da-boom", 163, 11122022)),100, false, false, false, false, false,
                 false, 123
             )
         )
@@ -99,7 +100,7 @@ class WallServiceTest {
             20000, 123, 321, 456, 1012022, "my updated test text post", 654, 789,
             987, Comments(2, true, false, true, true), "no copyright here",
             Likes(1, false, false, false), Reposts(1, true), Views(1),
-            "Great Post", 100, false, false, false, false, false,
+            "Great Post", AudioAttachment(Audio(1,123, "Hey", "Ba-da-boom", 163, 11122022)),100, false, false, false, false, false,
             false, 123
         )
 
