@@ -12,7 +12,7 @@ class WallService {
     }
 
     fun update(post: Post): Boolean {
-        var upd = true
+        var upd = false
         for ((index, element) in posts.withIndex()) {
             if (element.id == post.id) {
                 posts[index] = element.copy(
@@ -41,7 +41,7 @@ class WallService {
                     postponedId = post.postponedId
                 )
                 upd = true
-            } else upd = false
+            }
         }
         return upd
     }
