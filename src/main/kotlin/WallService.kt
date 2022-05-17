@@ -1,12 +1,21 @@
+import java.util.*
+
 class WallService {
     private var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
+
+    fun createComment(comment: Comment): Comment {
+        for (post in posts) {
+            if (post.id == comment.postId) {
+                comments += comment
+                return comment
+            }
+        }
+        throw PostNotFoundException("Post not found!")
+    }
 
     fun add(post: Post): Post {
-//        var idGenerate = post.id + 1
-//        post.id = idGenerate
-
       val postNewId = post.copy(id = post.id + 1)
-
       posts += postNewId
       return posts.last()
     }
@@ -25,7 +34,7 @@ class WallService {
                     replyOwnerId = post.replyOwnerId,
                     replyPostId = post.replyPostId,
                     friendsOnly = post.friendsOnly,
-                    comments = post.comments,
+                    comment = post.comment,
                     copyright = post.copyright,
                     likes = post.likes,
                     reposts = post.reposts,

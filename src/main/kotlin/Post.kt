@@ -10,7 +10,7 @@ data class Post (
     val replyOwnerId: Int,
     val replyPostId: Int,
     val friendsOnly: Int,
-    val comments: Comments,
+    val comment: Comment,
     val copyright: String,
     val likes: Likes,
     val reposts: Reposts,
