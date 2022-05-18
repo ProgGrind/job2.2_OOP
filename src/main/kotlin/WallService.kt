@@ -1,14 +1,29 @@
 import java.util.*
+import report.ReportComment
 
 class WallService {
     private var posts = emptyArray<Post>()
     private var comments = emptyArray<Comment>()
+    private var reports = emptyArray<ReportComment>()
 
     fun createComment(comment: Comment): Comment {
         for (post in posts) {
             if (post.id == comment.postId) {
                 comments += comment
                 return comment
+            }
+        }
+        throw PostNotFoundException("Post not found!")
+    }
+
+    fun createReport(reportComment: ReportComment): ReportComment {
+        for (comment in comments) {
+            if (comment.id == reportComment.commentId) {
+                if (reportComment.reasonId < 0 || reportComment.reasonId > 6) {
+                    throw NoSuchReportException("No such report!")
+                }
+                reports += reportComment
+                return reportComment
             }
         }
         throw PostNotFoundException("Post not found!")
