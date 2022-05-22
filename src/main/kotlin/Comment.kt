@@ -3,5 +3,6 @@ data class Comment (
     val postId: Int,
     val fromId: Int,
     val date: Int,
-    val text: String
+    val text: String,
+    var existing: Boolean
 )

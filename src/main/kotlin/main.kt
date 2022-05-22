@@ -13,7 +13,7 @@ fun main(){
          replyOwnerId = 654,
          replyPostId = 789,
          friendsOnly = 987,
-         comment = Comment(2, 0,1, 12102022, "My Comment"),
+         comment = Comment(2, 0,1, 12102022, "My Comment", true),
          copyright = "no copyright here",
          likes = Likes(1, false, false, false),
          reposts = Reposts(1, true),
@@ -32,7 +32,7 @@ fun main(){
 
 
      val wallService = WallService()
-     println(wallService.createComment(Comment(1, 1, 2, 31012022,"Comment")))
+     println(wallService.createComment(Comment(1, 1, 2, 31012022,"Comment", true)))
 
 
 
